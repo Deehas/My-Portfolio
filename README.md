@@ -1,3 +1,3 @@
 # My portfolio website
 
-<img src= "./img/preview.jpg">
+<img src= "./img/Preview.jpg">
