@@ -9,13 +9,30 @@
 }
 
 
+/* Custom Scroll Bar CSS */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #6e93f7;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4070f4;
+}
+
 /* Navigation Menu CSS */
 nav{
     position: fixed;
     width: 100%;
     padding: 20px 0;
     font-family: 'Ubuntu' , sans-serif;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     z-index: 998;
 }
 nav .logo img{
@@ -73,16 +90,24 @@ nav.sticky .navbar .media-icons a{
 
 
 /* Side Navigation Menu Button CSS */
-nav .menu-btn, .navbar .cancel-btn{
+nav .menu-btn, .navbar .menu .cancel-btn{
     position: absolute;
     color: #FFF;
     font-size: 20px;
     right: 30px;
     top: 20px;
+    cursor: pointer;
     display: none;
+    transition: all 0.3s ease;
 }
 nav .menu-btn{
     color: #4070F4;
+}
+nav.sticky .menu-btn{
+  color: #FFF;
+}
+.navbar .menu .menu-btn{
+  color: #fff;
 }
 
 
@@ -125,7 +150,9 @@ nav .menu-btn{
 }
 
 /* About Me Section CSS */
-
+section{
+    padding: 40px;
+}
 section .content{
     width: 80%;
     margin: 40px auto;
@@ -137,9 +164,11 @@ section .title{
     margin-bottom: 40px;
 }
 section .title span{
+    color: #0E2431;
     font-size: 30px;
     font-weight: 600;
     position: relative;
+    padding-bottom: 8px;
 }
 section .title span::before,
 section .title span::after{
@@ -208,18 +237,17 @@ section .topic{
     justify-content: space-between;
     flex-wrap: wrap;
 }
-.skills .skill-details .boxes .box{
+.skill-details .box{
     width: calc(100% / 2 - 20px);
     text-align: center;
+    margin: 20px 0;
 }
 .skill-details .boxes .box .topic{
     font-size: 20px;
-    font-weight: 500;
     color: #4070F4;
 }
 .skill-details .boxes .box .num{
     font-size: 60px;
-    font-weight: 500;
     color: #4070F4;
 }
 
@@ -250,13 +278,19 @@ section .topic{
     background: #4070F4;
     border-radius: 50%;
     text-align: center;
+    font-size: 18px;
     line-height: 50px;
     margin: 0 auto 10px auto;
     transition: all 0.4s ease;
 }
-.services .boxes .box:hover .icon{
+.boxes .box:hover .icon{
     background: #FFF;
     color: #4070F4;
+}
+.services .boxes .box:hover .topic,
+.services .boxes .box:hover p{
+  color: #0E2431;
+  transition: all 0.4s ease;
 }
 .services .boxes .box:hover .topic{
     color: #FFF;
@@ -280,18 +314,6 @@ text-align: center;
     color: #4070F4;
     width: calc(100% / 2 - 20px);
 }
-@media(max-width:533px){
-    .med-icons a i{
-        height: 80px;
-        width: 80px;
-    }
-}
-@media(max-width:433px){
-    .med-icons a i{
-        height: 60px;
-        width: 60px;
-    }
-}
 
 
 /* Footer CSS */
@@ -299,11 +321,27 @@ footer {
     background: #4070F4;
     text-align: center;
     padding: 15px 0;
+    font-family: 'Poppins', sans-serif;
 }
 footer .text span{
     color:#FFF;
     font-size: 17px;
     font-weight: 500;
+}
+
+
+/* Scroll TO Top Button CSS */
+.scroll-button a{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: #fff;
+    background: #4070f4;
+    padding: 7px 12px;;
+    font-size: 18px;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.15);
+    display: none;
 }
 
 
@@ -322,6 +360,7 @@ footer .text span{
 @media (max-width: 1090px) {
     .about .about-details{
         flex-direction: column;
+        justify-content: center;
     }
     .about .about-details .right{
         width: 100%; 
@@ -334,6 +373,7 @@ footer .text span{
     }
     .services .boxes .box{
         width: calc(100% / 2 - 20px);
+        margin: 20px 0;
     }
 }      
 @media (max-width: 971px) {
@@ -343,8 +383,11 @@ footer .text span{
     }
 }    
 @media (max-width: 750px) {
+    nav .navbar{
+        width: 90%;
+    }
     nav .navbar .menu{
-        position: absolute;
+        position: fixed;
         left: -100%;
         top: 0;
         height: 100vh;
@@ -365,9 +408,11 @@ footer .text span{
         font-size: 23px;
         color: #FFF;
     }
+    nav.sticky .menu a:hover{
+        color: #4070f4;
+      }
     .navbar .media-icons a{
         display: none;
-
     }
     nav .menu-btn, .navbar .cancel-btn{
         display: block;
@@ -381,17 +426,19 @@ footer .text span{
     .skills .skill-details{
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
     }
     .skills .skill-details .left{
         width: 90%;
     }
     .skills .skill-details .boxes{
-        width: 90%;
-        margin: 40px 0;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
     }
     .services .boxes .box{
         width: 100%;
+        margin: 20px 0;
     }
 }
 @media (max-width: 510px){
@@ -401,4 +448,20 @@ footer .text span{
     .home .text .text-three{
         font-size: 33px;
      }
+     .skills-details .boxes .per{
+        font-size: 50px;
+        color: #4070f4;
+      }
 } 
+@media(max-width:533px){
+    .med-icons a i{
+        height: 80px;
+        width: 80px;
+    }
+}
+@media(max-width:433px){
+    .med-icons a i{
+        height: 60px;
+        width: 60px;
+    }
+}
