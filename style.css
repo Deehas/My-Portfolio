@@ -243,11 +243,7 @@ section .topic{
     margin: 20px 0;
 }
 .skill-details .boxes .box .topic{
-    font-size: 20px;
-    color: #4070F4;
-}
-.skill-details .boxes .box .num{
-    font-size: 60px;
+    font-size: 30px;
     color: #4070F4;
 }
 
